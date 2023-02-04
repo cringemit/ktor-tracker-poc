@@ -18,4 +18,5 @@
             </#list>
         </tbody>
     </table>
+    <a href="food/new">Add a Food</a>
 </@base.header>
