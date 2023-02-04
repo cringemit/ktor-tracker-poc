@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="foods" type="kotlin.collections.List<com.raintown.models.Food>" -->
 <#import "../_base.ftl" as base />
 <@base.header>
     <h1>Food Database</h1>
@@ -9,18 +10,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Generic</td>
-                <td>Apple</td>
-            </tr>
-            <tr>
-                <td>Kellog's</td>
-                <td>Cornflakes</td>
-            </tr>
-            <tr>
-                <td>Generic</td>
-                <td>Parsnip</td>
-            </tr>
+            <#list foods as food>
+                <tr>
+                    <td>${food.brandName}</td>
+                    <td>${food.itemName}</td>
+                </tr>
+            </#list>
         </tbody>
     </table>
 </@base.header>

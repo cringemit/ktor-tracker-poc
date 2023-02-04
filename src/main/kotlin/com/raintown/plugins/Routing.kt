@@ -1,5 +1,6 @@
 package com.raintown.plugins
 
+import com.raintown.models.foodStorage
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.resources.Resources
@@ -17,7 +18,7 @@ fun Application.configureRouting() {
 
         route("food") {
             get {
-                call.respond(FreeMarkerContent("food/index.ftl", null))
+                call.respond(FreeMarkerContent("food/index.ftl", mapOf("foods" to foodStorage)))
             }
         }
     }
