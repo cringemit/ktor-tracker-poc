@@ -8,6 +8,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
 }
 
+tasks.withType(Test::class) {
+    useJUnitPlatform()
+}
+
 group = "com.raintown"
 version = "0.0.1"
 application {
@@ -28,7 +32,6 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     testImplementation("org.jsoup:jsoup:1.15.3")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
