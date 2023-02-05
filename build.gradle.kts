@@ -32,6 +32,5 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.jsoup:jsoup:1.15.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
