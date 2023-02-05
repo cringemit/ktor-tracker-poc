@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <#list foods as food>
-                <tr>
+                <tr id="${food.id}">
                     <td>${food.brandName}</td>
                     <td>${food.itemName}</td>
                     <td>
