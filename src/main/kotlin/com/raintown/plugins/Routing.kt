@@ -34,7 +34,7 @@ fun Application.configureRouting() {
 
             route("new") {
                 get {
-                    call.respond(FreeMarkerContent("food/new.ftl", null))
+                    call.respond(FreeMarkerContent("food/edit.ftl", null))
                 }
 
                 post {
