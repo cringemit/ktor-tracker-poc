@@ -32,6 +32,28 @@ fun Application.configureRouting() {
                 call.respond(FreeMarkerContent("food/show.ftl", mapOf("food" to food)))
             }
 
+            route("edit") {
+                get("{id}") {
+                    val food = foodStorage.find { it.id == UUID.fromString(call.parameters["id"]) }
+                        ?: call.respond(HttpStatusCode.NotFound, "Failed to find a food with that id")
+                    call.respond(FreeMarkerContent("food/edit.ftl", mapOf("food" to food)))
+                }
+
+                post("{id}") {
+                    val food = foodStorage.find { it.id == UUID.fromString(call.parameters["id"]) }
+                        ?: return@post call.respond(HttpStatusCode.NotFound, "Failed to find a food with that id")
+                    val parameters = call.receiveParameters()
+                    val updatedFood = food.copy(
+                        itemName = parameters["item-name"] ?: food.itemName,
+                        brandName = parameters["brand-name"] ?: food.brandName
+                    )
+                    foodStorage.removeIf { it.id == food.id }
+                    foodStorage.add(updatedFood)
+                    call.respondRedirect("../${food.id}")
+                }
+            }
+
+
             route("new") {
                 get {
                     call.respond(FreeMarkerContent("food/edit.ftl", null))
