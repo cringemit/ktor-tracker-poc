@@ -7,6 +7,7 @@
             <tr>
                 <th>Brand Name</th>
                 <th>Item Name</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,10 @@
                 <tr>
                     <td>${food.brandName}</td>
                     <td>${food.itemName}</td>
+                    <td>
+                        <a href="food/${food.id}">Show</a>
+                        <a href="food/edit/${food.id}">Edit</a>
+                    </td>
                 </tr>
             </#list>
         </tbody>
